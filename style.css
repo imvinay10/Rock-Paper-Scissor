@@ -1,0 +1,342 @@
+body {
+    background-color: #8cc461;
+    font-family: Roboto;
+    max-height: 100vh;
+    text-transform: uppercase;
+    color: white;
+}
+
+#heading {
+    display: flex;
+    letter-spacing: 0.3em;
+    border-style: solid;
+    border-color: white;
+    position: relative;
+    width: 60%;
+    height: 130px;
+    border-radius: 10px;
+    margin: auto;
+    padding-bottom: 10px;
+    top: 50px;
+    text-align: left;
+    padding: 0px 0px 30px 05px;
+}
+
+#gameName {
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    padding-left: 10px;
+    letter-spacing: 0.4em;
+}
+
+.scoreBoard {
+    background-color: white;
+    height: 125px;
+    width: 140px;
+    margin-top: 10px;
+    position: absolute;
+    right: 16px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 05px;
+}
+
+.player {
+    letter-spacing: 0.1em;
+    color: #656565;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#compScore {
+    position: absolute;
+    right: 185px;
+}
+
+.scoreH1 {
+    margin: auto;
+    font-size: 70px;
+    color: black;
+}
+
+.game-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: (repeat(2, 1fr));
+    grid-template-areas:
+        "rock scissor"
+        "paper paper";
+    place-items: center;
+    height: 30rem;
+    padding-top: 4rem;
+    margin: 0% 30% 0% 30%;
+}
+
+.game-container::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    left: -200px;
+    top: -150px;
+    background: url(./triangle.jpg ) no-repeat;
+    background-size: 50% 55%;
+    z-index: -1;
+    opacity: 70%;
+    transform: rotate(-180deg);
+}
+
+.choice-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.choice {
+    box-shadow: inset rgba(60, 60, 84, 0.2) 0px 4px 25px 0px,
+        inset rgba(17, 17, 26, 0.1) 0px 8px 32px 0px,
+        inset rgba(17, 17, 26, 0.05) 0px 12px 40px 0px;
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    background: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border-style: solid;
+    border-width: 15px;
+    border-radius: 50%;
+}
+
+.choice-btn[data-choice="rock"] .choice {
+    grid-area: rock;
+    border-color: #0074b6;
+
+}
+
+.choice-btn[data-choice="scissor"] .choice {
+    grid-area: scissor;
+    border-color: #bd00ff;
+
+}
+
+.choice-btn[data-choice="paper"] .choice {
+    grid-area: paper;
+    border-color: #ffa943;
+    margin-left: 110%;
+    margin-bottom: 50px;
+}
+
+
+.results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    max-width: 850px;
+    margin: 50px auto;
+}
+
+
+.results_winner {
+    grid-area: result-winner;
+    display: grid;
+    place-items: center;
+    margin-top: 50px;
+}
+
+.results_text {
+    font-size: 3.5rem;
+    padding-bottom: 1.5rem;
+    letter-spacing: 0.4rem;
+}
+
+.sub_results_text {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    z-index: 0;
+}
+
+.play-again {
+    background: #fff;
+    height: 3rem;
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 0.6rem;
+    color: black;
+    padding: 0.6rem 3.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.play-again:focus {
+    border: 2px solid var(--outline);
+}
+
+.result_heading{
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    padding: 4rem 0 8rem;
+}
+
+.results__heading:first-of-type {
+    grid-area: you-title;
+}
+
+.results__heading:last-of-type {
+    grid-area: PC picked;
+}
+
+.results_result:first-of-type {
+    grid-area: you-picked;
+}
+
+.results_result:last-of-type {
+    grid-area: ai-picked;
+}
+
+.results.show-winner {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "you-title result-winner ai-title"
+        "you-picked result-winner ai-picked";
+}
+
+.results_result{
+    padding-top: 0px;
+    transform: scale(1.3);
+}
+
+
+.results_winner {
+    grid-area: result-winner;
+    display: grid;
+    place-items: center;
+    vertical-align:middle;
+}
+
+.results_text {
+    font-size: 3.0rem;
+}
+
+.winner .choice::after {
+    box-shadow: 0 0 0 20px rgba(63, 197, 50, 0.7), 0 0 0 40px rgba(68, 221, 55, 0.5), 0 0 0 60px rgba(68, 221, 55, 0.3);
+    animation: winner 1s ease forwards;
+}
+
+@keyframes winner {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.choice::before,
+.choice::after {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.choice::after {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.play_again {
+    background: #fff;
+    height: 3rem;
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 0.6rem;
+    color: black;
+    padding: 0.6rem 3.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.play-again:focus {
+    border: 2px solid var(--outline);
+}
+
+.hidden {
+    display: none;
+}
+
+.rules {
+    border-style: solid;
+    border-width: 7px;
+    border-color: white;
+    border-radius: 10px;
+    width: 250px;
+    position: absolute;
+    display: inline;
+    margin-left: 75.3em;
+    top: 37vh;
+    color: white;
+    background-color: #004429;
+    text-align: left;
+}
+
+.rules ul {
+    list-style: square;
+    font-size: 12px;
+}
+
+.game-rules {
+    text-align: center;
+}
+
+li::marker {
+    list-style: square;
+    color: yellow;
+    font-size: 15px;
+}
+
+.cross {
+    height: 50px;
+    width: 50px;
+    background: #00558a;
+    border-radius: 50%;
+    left: 90.5rem;
+    top: 14.8rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border: 5px solid white;
+}
+
+.x {
+    font-size: 45px;
+    color: white;
+}
+
+#ruleButton {
+    color: white;
+    background-color: #8cc461;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    height: 40px;
+    width: 110px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 25px;
+    right: 26px;
+    pointer-events: initial;
+
+}
+

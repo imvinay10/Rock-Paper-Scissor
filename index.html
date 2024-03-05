@@ -1,0 +1,81 @@
+<html>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+<header>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <div id="heading">
+        <div id="gameName">
+            <h1>ROCK</br>
+                PAPER</br>
+                SCISSORS
+            </h1>
+        </div>
+        <div id="compScore" class="scoreBoard">
+            <a class="player">COMPUTER SCORE</a>
+            <h1 id="comp" class="scoreH1">0</h1>
+        </div>
+        <div id="userScore" class="scoreBoard">
+            <a class="player">YOUR </br>SCORE</a>
+            <h1 id="user" class="scoreH1">0</h1>
+        </div>
+    </div>
+</header>
+
+<body>
+    <section class=game-container>
+        <button class="choice-btn" data-choice="rock">
+            <div class="choice rock">
+                <img src="rock.png">
+            </div>
+        </button>
+
+        <button class="choice-btn" data-choice="scissor">
+            <div class="choice scissor">
+                <img src="scissor.png">
+            </div>
+        </button>
+
+        <button class="choice-btn" data-choice="paper">
+            <div class="choice paper">
+                <img src="paper.png">
+            </div>
+        </button>
+    </section>
+
+    <section class="results hidden">
+        <h2 class="result_heading">You Picked</h2>
+        <div class="results_result"></div>
+        <div class="results_winner hidden">
+            <h3 class="results_text"></h3><br>
+            <h2 class="sub_results_text">Against PC</h2>
+            </h3>
+            <button class="play-again">play again</button>
+        </div>
+        <h2 class="result_heading">PC Picked</h2>
+        <div class="results_result"></div>
+    </section>
+
+
+
+    <button id="ruleButton">RULES</button>
+
+    <div class="rules">
+        <h1 class="game-rules">Game Rules</h1>
+        <ul>
+            <li><span>Rock beats seccior, seccior beats paper, paper beats rock.</span></li>
+            </br>
+            <li><span>Agree ahead of time whether you'll count off "rock,paper,scissors to just "rock, paper,
+                    scissor." </span></li>
+            </br>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time.</li>
+            </br>
+            <li>If both players lay down the same hand, each player lays down another hand.</li>
+            </br>
+        </ul>
+    </div>
+    <button class="cross">
+        <h1 class=x> x</h1>
+    </button>
+</body>
+</html>
